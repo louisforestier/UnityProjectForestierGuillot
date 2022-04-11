@@ -43,7 +43,7 @@ public class FileBrowser : MonoBehaviour
                 Debug.Log("Drive "+ d.RootDirectory.FullName);
                 GameObject node = Instantiate(treeItemPrefab);
                 TreeItem treeItem =  node.GetComponent<TreeItem>();
-                treeItem.setText(d.RootDirectory.FullName);
+                treeItem.Text = d.RootDirectory.FullName;
                 fileTree.AddItem(treeItem);
                 treeItem.arrow.GetComponent<Button>().onClick.AddListener(() => {
                     if(treeItem.children.transform.childCount == 0)
@@ -70,7 +70,7 @@ public class FileBrowser : MonoBehaviour
                 {
                     GameObject node = Instantiate(treeItemPrefab);
                     TreeItem treeItem = node.GetComponent<TreeItem>();
-                    treeItem.setText(subDirectory.Name);
+                    treeItem.Text = subDirectory.Name;
                     root.AddChild(treeItem);
                     treeItem.arrow.GetComponent<Button>().onClick.AddListener(() =>
                     {

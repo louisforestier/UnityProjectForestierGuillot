@@ -10,18 +10,11 @@ public class TreeItem : MonoBehaviour
     public GameObject arrow;
     public Text textComponent;
 
-    // Start is called before the first frame update
-    void Start()
+    public string Text
     {
-        
+        get => textComponent.text;
+        set => textComponent.text = value;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void AddChild(TreeItem treeItem)
     {
         Debug.Log("Add child in tree item");
@@ -36,10 +29,6 @@ public class TreeItem : MonoBehaviour
         else throw new Exception("This child doesn't exist.");
     }
 
-    public void setText(string text)
-    {
-        textComponent.text = text;
-    }
 
     public void RemoveAndDestroyChild(int i)
     {

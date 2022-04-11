@@ -63,13 +63,13 @@ public class FileChooser : MonoBehaviour
     }
 
     /// <summary>
-    /// Private method called at the end of ChooseFile, to generated the first nodes of the file tree and the drives directories in the File List by instanciating the prefabs. <br/>
+    /// Method called at the end of ChooseFile, to generated the first nodes of the file tree and the drives directories in the File List by instanciating the prefabs. <br/>
     /// Adds listeners to the treeItems to add the subDirectories as children when the arrow is clicked (because building the entire tree takes too long), by calling <see cref="AddSubDirectories(DirectoryInfo, TreeItem)"/> 
     /// and show the directories and files in the selected folder in the FileList, by calling <see cref="OpenDirectory(DirectoryInfo)"/>. <br/>
     /// Adds listener to the FileItem in the FileList to show the directories and files in the selected folder in the FileList.<br/>
     /// Sets the text of the FileItems and TreeItems, as well as the icon of the FileItems.<br/>
     /// </summary>
-    private void CreateTree()
+    public void CreateTree()
     {
         DriveInfo[] allDrives = DriveInfo.GetDrives();
 

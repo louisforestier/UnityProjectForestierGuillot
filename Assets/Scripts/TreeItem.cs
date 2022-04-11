@@ -4,6 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using System;
 
+/// <summary>
+/// Component to define and use a TreeItem
+/// </summary>
 public class TreeItem : MonoBehaviour
 {
     /// <summary>

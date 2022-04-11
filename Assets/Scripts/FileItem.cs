@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-
+/// <summary>
+/// Component to define and use a FileItem
+/// </summary>
 public class FileItem : MonoBehaviour
 {
     /// <summary>

@@ -6,6 +6,9 @@ using UnityEngine.UI;
 using System;
 using System.IO;
 
+/// <summary>
+/// Component to generate a FileChooser
+/// </summary>
 public class FileChooser : MonoBehaviour
 {
     /// <summary>

@@ -4,7 +4,7 @@ Réalisé par Louis Forestier et Clémentine Guillot.
 La version de l'éditeur Unity utilisé est : Unity 2020.3.23f1
 La version de Unity Hub utilisé est : 3.1.0
 
-Les scripts sont documentés, leur description, dans ce readme, est donc succinte. 
+Les scripts sont documentés, leur description, dans ce readme, est donc succincte. 
 
 ## Widget TreeView
 
@@ -13,18 +13,18 @@ Le GameObject TreeView est une ScrollView.
 Il a un script TreeView qui récupère le GameObject Root via l'inspecteur. 
 Le GameObject Root est un l'objet de ViewPort (élément visible d'une scrollview) qui contient un Vertical Layout. 
 Il est le premier élément de l'arbre, il n'est cependant jamais visible par l'utilisateur. 
-L'ancrage des éléments dans ce vertical layout se fait en haut et avec la plus grande largeure possible. 
+L'ancrage des éléments dans ce vertical layout se fait en haut et avec la plus grande largeur possible. 
 Il contôle la taille de ses enfants pour éviter qu'ils ne se chevauche.
 
 Le script TreeView a donc un attribut public root de type GameObject. 
 Il a également des méthodes utiles pour la manipulation de l'arbre.
-Il y a notament une méthode qui permet d'ajouter des éléments. Les éléments sont des TreeItem.
+Il y a notamment une méthode qui permet d'ajouter des éléments. Les éléments sont des TreeItem.
 
 ### TreeItem
 TreeItem est un GameObject avec un vertical layout et un script TreeItem. Il a également deux fils, Node et Children.
 Ces deux fils sont récupéré par le script TreeItem ainsi que le Text fils de Node.
 
-Node est un bouton qui a deux fils, Text et Arrow. Il correspond à une ligne dans le treeview. Ligne qui est donc clicable.
+Node est un bouton qui a deux fils, Text et Arrow. Il correspond à une ligne dans le treeview. Ligne qui est donc cliquable.
 Il a un horizontal layout pour placer Arrow et Text correctement. 
 Arrow est le bouton flèche qui change d'orientation et affiche ou non les enfants contenus dans Children.
 Text est un texte qui affiche le nom du noeud.
@@ -33,7 +33,7 @@ Children est un noeud vide qui a un vertical layout. Il est le GameObject père 
 Le vertical layout a un padding à gauche qui permet d'indenter les fils de manière récursive.
 
 Le script TreeItem a des méthodes pour la manipulation des treeitems. La méthode ChildrenVisible est celle qui est
-appelée par le bouton fleche. Elle permet de tourner le bouton et de changer la visibilité des fils.
+appelée par le bouton flèche. Elle permet de tourner le bouton et de changer la visibilité des fils.
 
 ## Widget FileChooser
 
@@ -69,9 +69,10 @@ méthode Resources.Load de Unity. Il est notamment instancié dans la méthode s
 ## Notre application
 Nous avons créé une application pour montrer l'utilisation de nos préfab.
 L'application permet de changer la texture des astres du système solaire.
-On y voit un système solaire et un treeview contenant le nom des tous les astres visibles.
-Lorsque l'on clique sur le nom d'un des artres, par exemple la Terre, un filechooser souvre.
-On peut alors choisir une image, seul le format jpg est reconu. L'image sera alors appliquée
+On y voit un système solaire et une treeview contenant le nom des tous les astres visibles.
+Cliquer sur les flèches des TreeItem permet de déplier l'arborescence.
+Lorsque l'on clique sur le noeud contenant le nom d'un des astres, par exemple la Terre, un filechooser s'ouvre.
+On peut alors choisir une image, seul le format jpg est reconnu. L'image sera alors appliquée
 à la Terre.
 
 

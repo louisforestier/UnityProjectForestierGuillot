@@ -4,6 +4,9 @@ using UnityEngine;
 using System.IO;
 using System;
 
+/// <summary>
+/// Component to be put on a celestial body to rotate and change the texture.
+/// </summary>
 public class CelestialBody : MonoBehaviour
 {
     /// <summary>

@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-
+/// <summary>
+/// Component to define and use a TreeView
+/// </summary>
 public class TreeView : MonoBehaviour
 {
     /// <summary>

@@ -6,7 +6,8 @@ La version de Unity Hub utilisé est : 3.1.0
 
 Les scripts sont documentés, leur description, dans ce readme, est donc succincte. 
 
-L'application de démonstration des widgets est dans la scène MainScene.
+Seuls les dossiers Assets, Packages et ProjectSettings sont dans l'archive pour éviter de la polluer.
+Il faut donc ouvrir la scène MainScene au lancement qui contient l'application de démonstration des widgets.
 
 ## Arborescence du projet Unity
 ```

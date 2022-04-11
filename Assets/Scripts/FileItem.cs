@@ -6,6 +6,9 @@ using UnityEngine.UI;
 
 public class FileItem : MonoBehaviour
 {
+    /// <summary>
+    /// Property to get/set the sprite of the FileItem.
+    /// </summary>
     public Sprite Icon
     {
         get
@@ -18,6 +21,9 @@ public class FileItem : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Property to get/set the text of the FileItem.
+    /// </summary>
     public string Text
     {
         get
@@ -30,6 +36,9 @@ public class FileItem : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Propery to get the onClick event of the FileItem to add listeners.
+    /// </summary>
     public UnityEngine.UI.Button.ButtonClickedEvent Event
     {
         get

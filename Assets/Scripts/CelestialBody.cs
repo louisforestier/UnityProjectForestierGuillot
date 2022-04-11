@@ -46,11 +46,11 @@ public class CelestialBody : MonoBehaviour
     }
 
     /// <summary>
-    /// Call the <see cref="FileBrowser.ChooseFile(FileBrowser.OnClick)"/> method with <see cref="ChangeTexture(string)"/> to modify the Texture at runtime.
+    /// Call the <see cref="FileChooser.ChooseFile(FileChooser.OnClick)"/> method with <see cref="ChangeTexture(string)"/> to modify the Texture at runtime.
     /// </summary>
     public void ChooseTextureFile()
     {
-        FileBrowser.ChooseFile(ChangeTexture);
+        FileChooser.ChooseFile(ChangeTexture);
     }
 
     /// <summary>

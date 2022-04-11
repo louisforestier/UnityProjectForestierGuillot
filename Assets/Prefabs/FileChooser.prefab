@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7618339066119776953}
   - component: {fileID: 7401375763542941937}
   m_Layer: 5
-  m_Name: FileBrowser
+  m_Name: FileChooser
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -88,7 +88,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 548195297833066324}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 875d30b3d649c1c449ceb5fd58fe080e, type: 3}
+  m_Script: {fileID: 11500000, guid: ff9f1e7439aabc544880a080265b315a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   fileTree: {fileID: 8228819749393732155}
@@ -1235,7 +1235,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8961834662945993770, guid: 5488fac2882ccf74db70cd9f592b034f, type: 3}
       propertyPath: m_Value
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8961834663060854925, guid: 5488fac2882ccf74db70cd9f592b034f, type: 3}
       propertyPath: m_AnchorMax.x

@@ -6,8 +6,12 @@ using UnityEngine.UI;
 using System;
 using System.IO;
 
-public class FileBrowser : MonoBehaviour
+public class FileChooser : MonoBehaviour
 {
+    /// <summary>
+    /// Method to be called by the FileCh
+    /// </summary>
+    /// <param name="path"></param>
     public delegate void OnClick(string path);
 
     public TreeView fileTree;
@@ -21,14 +25,14 @@ public class FileBrowser : MonoBehaviour
 
     public static void ChooseFile(OnClick onClick)
     {
-        GameObject fileBrowserCanvas = Instantiate(Resources.Load<GameObject>("Prefabs/FileBrowserCanvas"));
-        fileBrowserCanvas.GetComponentInChildren<FileBrowser>().onClick = onClick;
+        GameObject fileChooserCanvas = Instantiate(Resources.Load<GameObject>("Prefabs/FileChooserCanvas"));
+        fileChooserCanvas.GetComponentInChildren<FileChooser>().onClick = onClick;
         if (!EventSystem.current)
         {
-            fileBrowserCanvas.AddComponent<EventSystem>();
-            fileBrowserCanvas.AddComponent<StandaloneInputModule>();
+            fileChooserCanvas.AddComponent<EventSystem>();
+            fileChooserCanvas.AddComponent<StandaloneInputModule>();
         }
-        fileBrowserCanvas.GetComponentInChildren<FileBrowser>().CreateTree();
+        fileChooserCanvas.GetComponentInChildren<FileChooser>().CreateTree();
 
     }
 

@@ -6,8 +6,19 @@ using System;
 
 public class TreeItem : MonoBehaviour
 {
+    /// <summary>
+    /// GameObject containing the children.
+    /// </summary>
     public GameObject children;
+
+    /// <summary>
+    /// GameObject containing the arrow sprite.
+    /// </summary>
     public GameObject arrow;
+
+    /// <summary>
+    /// Text Component of the GameObject Text in the TreeItem node.
+    /// </summary>
     public Text textComponent;
 
     /// <summary>

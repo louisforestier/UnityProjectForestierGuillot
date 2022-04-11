@@ -80,7 +80,6 @@ public class FileChooser : MonoBehaviour
         {
             if (d.IsReady && IsAccessibleDirectory(d.RootDirectory))
             {
-                Debug.Log("Drive "+ d.RootDirectory.FullName);
                 GameObject node = Instantiate(treeItemPrefab);
                 TreeItem treeItem =  node.GetComponent<TreeItem>();
                 treeItem.Text = d.RootDirectory.FullName;

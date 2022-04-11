@@ -77,7 +77,7 @@ public class TreeItem : MonoBehaviour
     /// Return the number of children.
     /// </summary>
     /// <returns> number of children</returns>
-    public int ChildrenCount()
+    public int ChildCount()
     {
         return children.transform.childCount;
     }

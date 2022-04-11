@@ -6,6 +6,22 @@ La version de Unity Hub utilisé est : 3.1.0
 
 Les scripts sont documentés, leur description, dans ce readme, est donc succincte. 
 
+L'application de démonstration des widgets est dans la scène MainScene.
+
+## Arborescence du projet Unity
+```
+Assets
+├── Materials (contient les matériaux appliqués aux planètes)
+├── Mesh (contient le maillage de Phobos)
+├── Prefabs (contient les prefabs créés)
+├── Resources (Dossier nécessaire à l'appel de la fonction Resources.Load)
+│   ├── Prefabs (contient le canvas incluant le FileChooser)
+│   └── Sprites (contient les icônes de répertoire et de fichiers)
+├── Scenes (contient la scène MainScene)
+├── Scripts (contient les scripts créés)
+├── Sprites (contient les images des boutons)
+└── Textures (contient les textures des planètes)
+```
 ## Widget TreeView
 
 ### TreeView
@@ -72,7 +88,7 @@ L'application permet de changer la texture des astres du système solaire.
 On y voit un système solaire et une treeview contenant le nom des tous les astres visibles.
 Cliquer sur les flèches des TreeItem permet de déplier l'arborescence.
 Lorsque l'on clique sur le noeud contenant le nom d'un des astres, par exemple la Terre, un filechooser s'ouvre.
-On peut alors choisir une image, seul le format jpg est reconnu. L'image sera alors appliquée
+On peut alors choisir une image, seul le format jpg est reconnu. L'image sera alors appliquée comme texture
 à la Terre.
 
 

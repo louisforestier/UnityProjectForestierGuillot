@@ -6,11 +6,19 @@ using System;
 
 public class CelestialBody : MonoBehaviour
 {
+    /// <summary>
+    /// Speed of the rotation
+    /// </summary>
     public float speed = 5;
+
+    /// <summary>
+    /// True if the object should rotate, false if you want it to be still.
+    /// </summary>
     public bool mustRotate = true;
-    // Start is called before the first frame update
 
-
+    /// <summary>
+    /// Rotate the Celestial body on the y axis
+    /// </summary>
     private void FixedUpdate()
     {
         if (mustRotate)
@@ -19,21 +27,36 @@ public class CelestialBody : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Toggle the rotation.
+    /// </summary>
+    /// <param name="animate"></param>
     public void ToggleAnimation(bool animate)
     {
         mustRotate = animate;
     }
 
+    /// <summary>
+    /// Change the rotation speed.
+    /// </summary>
+    /// <param name="speed"></param>
     public void ChangeSpeed(float speed)
     {
         this.speed = speed;
     }
 
+    /// <summary>
+    /// Call the <see cref="FileBrowser.ChooseFile(FileBrowser.OnClick)"/> method with <see cref="ChangeTexture(string)"/> to modify the Texture at runtime.
+    /// </summary>
     public void ChooseTextureFile()
     {
         FileBrowser.ChooseFile(ChangeTexture);
     }
 
+    /// <summary>
+    /// If the path corresponds to a file with a .jpg extension, it changes the texture of the object.
+    /// </summary>
+    /// <param name="path"></param>
     private void ChangeTexture(string path)
     {
         string extension = Path.GetExtension(path).ToLowerInvariant();

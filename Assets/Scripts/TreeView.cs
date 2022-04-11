@@ -4,19 +4,15 @@ using UnityEngine;
 
 public class TreeView : MonoBehaviour
 {
+    /// <summary>
+    /// Root element of the TreeView.
+    /// </summary>
     public GameObject root;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    /// <summary>
+    /// Add a TreeItem in the TreeView by setting the TreeItem gameobject transform as a child of the root transform.
+    /// </summary>
+    /// <param name="treeItem"></param>
     public void AddItem(TreeItem treeItem)
     {
         treeItem.transform.SetParent(root.transform,false);

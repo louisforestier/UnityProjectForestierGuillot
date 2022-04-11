@@ -9,20 +9,46 @@ using System.IO;
 public class FileChooser : MonoBehaviour
 {
     /// <summary>
-    /// Method to be called by the FileCh
+    /// Delegate to referenced a method which take a string as parameter.
     /// </summary>
     /// <param name="path"></param>
     public delegate void OnClick(string path);
 
+    /// <summary>
+    /// The TreeView containing the file tree.
+    /// </summary>
     public TreeView fileTree;
+
+    /// <summary>
+    /// The Content of the scroll view containing the list of file of the current directory.
+    /// </summary>
     public GameObject fileList;
+
+    /// <summary>
+    /// The TreeItem prefab to instanciate.
+    /// </summary>
     public GameObject treeItemPrefab;
+
+    /// <summary>
+    /// The FileItem prefab to instanciate.
+    /// </summary>
     public GameObject fileItemPrefab;
+
+    /// <summary>
+    /// The InputField containing the path of the current directory.
+    /// </summary>
     public InputField inputField;
 
-
+    /// <summary>
+    /// Method to be called by the FileChooser when clicking on a file.
+    /// </summary>
+    /// <param name="path"></param>
     private OnClick onClick;
 
+    /// <summary>
+    /// Static method to be called to instanciate a Canvas containing the FileChooser prefab, with the Component needed if no EventSystem are already in the Scene.
+    /// </summary>
+    /// <param name="onClick"></param>
     public static void ChooseFile(OnClick onClick)
     {
         GameObject fileChooserCanvas = Instantiate(Resources.Load<GameObject>("Prefabs/FileChooserCanvas"));
@@ -36,13 +62,20 @@ public class FileChooser : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// Private method called at the end of ChooseFile, to generated the first nodes of the file tree and the drives directories in the File List by instanciating the prefabs. <br/>
+    /// Adds listeners to the treeItems to add the subDirectories as children when the arrow is clicked (because building the entire tree takes too long), by calling <see cref="AddSubDirectories(DirectoryInfo, TreeItem)"/> 
+    /// and show the directories and files in the selected folder in the FileList, by calling <see cref="OpenDirectory(DirectoryInfo)"/>. <br/>
+    /// Adds listener to the FileItem in the FileList to show the directories and files in the selected folder in the FileList.<br/>
+    /// Sets the text of the FileItems and TreeItems, as well as the icon of the FileItems.<br/>
+    /// </summary>
     private void CreateTree()
     {
         DriveInfo[] allDrives = DriveInfo.GetDrives();
 
         foreach (DriveInfo d in allDrives)
         {
-            if (d.IsReady)
+            if (d.IsReady && IsAccessibleDirectory(d.RootDirectory))
             {
                 Debug.Log("Drive "+ d.RootDirectory.FullName);
                 GameObject node = Instantiate(treeItemPrefab);
@@ -64,6 +97,13 @@ public class FileChooser : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Adds the accessible subdirectories in the TreeItem root as TreeItem child by instanciating the prefab.<br/>
+    /// Adds listeners to the treeItems subdirectories to call this method when the arrow is clicked
+    /// and show the directories and files in the selected folder in the FileList, by calling <see cref="OpenDirectory(DirectoryInfo)"/>.<br/>
+    /// </summary>
+    /// <param name="directory"></param>
+    /// <param name="root"></param>
     private void AddSubDirectories(DirectoryInfo directory, TreeItem root)
     {
         if (IsAccessibleDirectory(directory))
@@ -85,6 +125,13 @@ public class FileChooser : MonoBehaviour
             }
         }
     }
+
+    /// <summary>
+    /// Clears the FileList then adds all the accessible subdirectories and the files contained in directory.
+    /// Set the name and icon for each item.
+    /// Adds a listener to the subdirectories item to call this method and a listener to the files item to call the <see cref="onClick"/> method.
+    /// </summary>
+    /// <param name="directory"></param>
     private void OpenDirectory(DirectoryInfo directory)
     {
         foreach (Transform child in fileList.transform)
@@ -115,6 +162,9 @@ public class FileChooser : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Go to the parent directory of the current ones, if it exists, by calling <see cref="OpenDirectory(DirectoryInfo)"/>. Else it displays the drives.
+    /// </summary>
     public void Return()
     {
         string current_directory = inputField.text;
@@ -146,12 +196,19 @@ public class FileChooser : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Quit the FileChooser by asking for the whole canvas to be destroyed.
+    /// </summary>
     public void Quit()
     {
-        GameObject canvas = transform.parent.gameObject;
-        Destroy(canvas);
+        Destroy(transform.parent.gameObject);
     }
 
+    /// <summary>
+    /// Check if a directory is accessible.
+    /// </summary>
+    /// <param name="directory"></param>
+    /// <returns></returns>
     private bool IsAccessibleDirectory(DirectoryInfo directory)
     {
         try
